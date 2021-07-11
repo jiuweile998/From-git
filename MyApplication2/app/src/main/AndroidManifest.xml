@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.test">
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication2"
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.MyApplication2.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ZhuCeActivity"
+            android:label="注册页面">
+        </activity>
+        <activity android:name=".ZhuYePage" />
+        <activity
+            android:name=".WodeActivity"
+            android:label="我的界面">
+        </activity>
+        <activity
+            android:name=".XiuGai_xinxiActivity"
+            android:label="修改个人信息页面">
+        </activity>
+        <activity android:name=".AllBookActivity" />
+        <activity android:name=".SerarchActivity" />
+        <activity android:name=".Novel_zhuye" />
+        <activity android:name=".novel_txt_activity" />
+
+        <service android:name=".HttpRequest.LoginHttpRuqest"/>
+        <service android:name=".HttpRequest.LoginHttpRuqest2"/>
+        <service android:name=".HttpRequest.ZhuCeHttpRequest"/>
+        <service android:name=".HttpRequest.XiuGaiHttpReuqest"/>
+        <service android:name=".HttpRequest.ForNovelTxtHttpRequest" />
+        <service android:name=".HttpRequest.searchHttpRequest" />
+        <service android:name=".HttpRequest.DeleteOrAddHttpRequest" />
+        <service android:name=".HttpRequest.all_bookHttpRequest" />
+
+    </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
+
+</manifest>

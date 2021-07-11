@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/zhuye"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="个人信息"
+            android:textSize="30dp"
+
+            />
+    </LinearLayout>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="200dp"
+       android:orientation="vertical"
+       android:layout_marginTop="90dp"
+       >
+
+       <TextView
+           android:layout_width="fill_parent"
+           android:layout_height="48dp"
+           android:text="昵称"
+           android:textSize="20dp"
+           android:background="@drawable/shuru"
+           android:layout_marginLeft="35dp"
+           android:layout_marginRight="35dp"
+           android:id="@+id/nicheng_wode"
+           />
+       <TextView
+           android:layout_width="fill_parent"
+           android:layout_height="48dp"
+           android:layout_marginTop="20dp"
+           android:layout_marginLeft="35dp"
+           android:layout_marginRight="35dp"
+           android:background="@drawable/shuru"
+           android:text="账号"
+           android:textSize="20dp"
+           android:id="@+id/zhanghao_wode"
+           />
+
+   </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/xiugaixinxi_wode"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:background="@drawable/hongse"
+            android:text="修改账号"
+            android:textSize="20dp"
+            android:tint="#000" />
+
+        <Button
+
+            android:layout_marginTop="5dp"
+            android:id="@+id/logout_wode"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:background="@drawable/hongse"
+            android:text="退出"
+            android:textSize="20dp"
+            android:tint="#000"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="110dp"
+        >
+        <ImageButton
+            android:id="@+id/shujia_wode"
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/shujia"
+            android:text="书架">
+        </ImageButton>
+        <ImageButton
+            android:id="@+id/quanbufenlei_wode"
+            android:layout_width="85dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/fenlei"
+            android:text="全部分类">
+
+        </ImageButton>
+        <ImageButton
+            android:id="@+id/wode_wode"
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/wode"
+            android:text="我的">
+
+        </ImageButton>
+    </LinearLayout>
+
+
+
+</LinearLayout>

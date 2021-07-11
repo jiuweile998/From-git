@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/serchview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/zhuye"
+    >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/serarch_zhuye"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="15dp"
+
+            android:background="@drawable/sousuotu"
+
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:hint="点击搜索"
+            android:inputType="textPassword"
+            android:paddingLeft="8dp"
+            android:singleLine="true"
+            android:textColor="#000000"
+            android:textColorHint="#a3a3a3"
+            android:textSize="14sp" />
+
+
+
+    </LinearLayout>
+    <ListView
+        android:id="@+id/lv1"
+        android:layout_width="fill_parent"
+        android:layout_height="480dp"
+        android:orientation="vertical">
+
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal">
+
+
+        <ImageButton
+            android:id="@+id/shujia_zhuye"
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/shujia"
+            android:text="书架">
+
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/quanbufenlei"
+            android:layout_width="85dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/fenlei"
+            android:text="全部分类">
+
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/wode"
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/wode"
+            android:text="我的">
+
+        </ImageButton>
+    </LinearLayout>
+
+</LinearLayout>

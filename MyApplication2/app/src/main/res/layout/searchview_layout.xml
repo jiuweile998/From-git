@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/serchview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/zhuye"
+    >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/serarch_search"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/sousuotu"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:hint="请输入书名或作者"
+            android:paddingLeft="8dp"
+            android:singleLine="true"
+            android:textColor="#000000"
+            android:textColorHint="#a3a3a3"
+            android:textSize="14sp" />
+
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:text="搜 索"
+            android:id="@+id/sousuo_search"
+            android:layout_marginLeft="20dp"
+            >
+
+        </Button>
+
+    </LinearLayout>
+    <ListView
+        android:id="@+id/listview_search"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+
+    </ListView>
+
+
+</LinearLayout>

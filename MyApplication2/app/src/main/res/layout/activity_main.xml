@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/beijing"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!--输入框-->
+    <EditText
+
+        android:id="@+id/et_user_name"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_above="@id/et_psw"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/shuru"
+        android:drawableLeft="@drawable/shuru"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:hint="请输入账号"
+        android:paddingLeft="8dp"
+        android:singleLine="true"
+        android:textColor="#000000"
+        android:textColorHint="#a3a3a3"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/et_psw"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/shuru"
+        android:drawableLeft="@drawable/shuru"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:hint="请输入密码"
+        android:inputType="textPassword"
+        android:paddingLeft="8dp"
+        android:singleLine="true"
+        android:textColor="#000000"
+        android:textColorHint="#a3a3a3"
+        android:textSize="14sp" />
+    <!--按钮-->
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/et_psw"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/hongse"
+        android:text="登 录"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/meiyouzhanghao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="300dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="10dp"
+        android:text="没有账号?"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp" />
+
+</LinearLayout>

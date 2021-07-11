@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <ImageView
+        android:id="@+id/fanhui_xiugai"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/fanhui"
+        android:orientation="vertical" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        >
+
+        <EditText
+            android:layout_marginTop="80dp"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:hint="昵称"
+            android:background="@drawable/shuru"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:id="@+id/nicheng_xinxi"
+            />
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:background="@drawable/shuru"
+            android:hint="原密码"
+            android:id="@+id/mima_xinxi"
+            />
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:background="@drawable/shuru"
+            android:hint="新密码"
+            android:id="@+id/newmima_xinxi"
+            />
+
+        <Button
+            android:id="@+id/queren_xinix"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="130dp"
+            android:text="确认修改"
+            android:textSize="18sp"
+            android:layout_marginTop="50dp"
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
