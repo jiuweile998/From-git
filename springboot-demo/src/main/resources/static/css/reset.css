@@ -1,0 +1,20 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+.bg-shark {
+	background-color: #ffda44;
+}
+.btn-shark {
+	background-color: #ffda44;
+}
+.head-shark {
+	width: 50px;
+}
+.shark-login {
+	height: 100vh;
+	padding-top: 30vh;
+}
+.shark-opacity {
+	opacity: 0.8;
+}

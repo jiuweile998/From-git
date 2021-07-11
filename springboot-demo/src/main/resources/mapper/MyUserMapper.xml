@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.springbootdemo.mapper.MyUserMapper" >
+    <resultMap id="BaseResultMap" type="com.example.springbootdemo.model.MyUser" >
+<!--        <id column="userid" property="user" jdbcType="INTEGER" />-->
+        <result column="username" property="userName" jdbcType="VARCHAR"/>
+        <result column="userpassword" property="userPassword" jdbcType="VARCHAR"/>
+        <result column="userphone" property="userPhone" jdbcType="VARCHAR" />
+<!--        <result column="usershelf" property="userShelf" jdbcType="INTEGER"/>-->
+    </resultMap>
+
+    <resultMap id="mybook" type="com.example.springbootdemo.model.Book">
+        <result column="bookid" property="bookId" jdbcType="VARCHAR" />
+        <result column="bookname" property="bookName" jdbcType="VARCHAR" />
+        <result column="bookauthor" property="bookAuthor" jdbcType="VARCHAR" />
+        <result column="bookkind" property="bookKind" jdbcType="VARCHAR" />
+        <result column="bookdscribe" property="bookDscribe" jdbcType="VARCHAR" />
+        <result column="bookpicture" property="bookPicture" jdbcType="VARCHAR" />
+        <result column="bookuserid" property="bookuserid" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <resultMap id="admin" type="com.example.springbootdemo.model.Admin_book">
+        <result column="userName" property="username" jdbcType="VARCHAR" />
+        <result column="password" property="password" jdbcType="VARCHAR" />
+    </resultMap>
+
+
+    <select id="selectUserByPhoneAndPassword" resultMap="BaseResultMap" parameterType="com.example.springbootdemo.controller.MyUserController" >
+        select
+       *
+        from myuser
+        where  userphone= #{phone,javaType=String} and userpassword=#{password,javaType=String}
+    </select>
+    <insert id="InsertUser"  parameterType="java.lang.String" >
+
+        insert into myuser(username,userphone,userpassword) values(#{username},#{userphone},#{userpassword})
+    </insert>
+
+    <select id="selectUserByPhone" resultMap="BaseResultMap" parameterType="com.example.springbootdemo.controller.MyUserController" >
+        select
+       *
+        from myuser
+        where  userphone= #{phone,javaType=String}
+    </select>
+
+    <update id="updateUser" parameterType="list">
+           update myuser set username=#{username},userpassword=#{userpassword}
+            where userphone=#{userphone}
+    </update>
+
+    <select id="selectBookByid"  resultMap="mybook" parameterType="com.example.springbootdemo.model.Book" >
+        select
+       *
+        from book
+        where  bookid= #{bookid,javaType=String}
+    </select>
+
+    <select id="selectBookId"  resultMap="mybook" parameterType="com.example.springbootdemo.model.Book" >
+        select
+       *
+        from book
+        where  bookuserid= #{bookuerid,javaType=String}
+    </select>
+
+    <select id="selectBookwhere"  resultType="string">
+
+     select bookwhere
+     from book
+     where bookid=#{bookid}
+
+    </select>
+
+    <select id="selectBookByNameOrAuthor" resultMap="mybook">
+        select *
+        from book
+        where (bookname=#{name} or bookauthor=#{name})
+
+    </select>
+
+    <update id="deleteBook">
+        update book
+        set bookuserid=0
+        where bookid=#{bookid}
+    </update>
+
+    <update id="addbook">
+        update book
+        set bookuserid=#{bookuserid}
+        where bookid=#{bookid}
+    </update>
+
+    <select id="selectBookBybookkind" resultMap="mybook">
+        select *
+        from book
+        where bookkind=#{bookkind}
+    </select>
+
+    <select id="adminLogin" resultMap="admin">
+        select *
+        from admin
+        where username=#{username}
+    </select>
+
+    <select id="selectAllMyUser" resultMap="BaseResultMap">
+        select *
+        from myuser
+    </select>
+
+    <select id="selectAllBook" resultMap="mybook">
+        select *
+        from book
+    </select>
+
+
+    <select id="selectGeRenAllbook" resultMap="mybook">
+        select *
+        from  book as b
+        left join  myuser as m
+        on b.bookuserid=m.userphone
+        where m.userphone=#{userphone}
+
+    </select>
+
+    <update id="updataMyUserFromAdmin">
+        update myuser
+        set username=#{username},userpassword=#{userpassword}
+        where userphone=#{userphone}
+    </update>
+
+    <update id="UpdateBookFromAdmin">
+        update book
+        set bookname=#{bookname},bookkind=#{bookkind},bookauthor=#{bookauthor},bookdscribe=#{bookdscribe}
+        where bookid=#{bookid}
+    </update>
+
+    <delete id="deleteFromAdminTomyuser">
+        delete
+        from myuser
+        where userphone=#{userphone}
+    </delete>
+
+    <insert id="AddBookFromAdmin">
+        insert into book(bookid,bookname,bookauthor,bookkind,bookdscribe,bookpicture,bookwhere)
+        values (#{bookid},#{bookname},#{bookauthor},#{bookkind},#{bookdscribe},#{bookpicture},#{bookwhere})
+    </insert>
+
+    <insert id="registerAdmin">
+        insert into admin(username,password) values (#{adminname},#{password})
+    </insert>
+
+</mapper>

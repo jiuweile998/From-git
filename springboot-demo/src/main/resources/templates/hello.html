@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>小说管理</title>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <script type="text/javascript" src="/js/jquery.slim.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid mt-3">
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">昵称</th>
+            <th scope="col">密码</th>
+            <th scope="col">账号</th>
+            <th scope="col">个人书架</th>
+            <th scope="col">操作</th>
+        </tr>
+        </thead>
+        <tbody th:if="${MyUsers} ne null">
+        <tr th:each="myuser:${MyUsers}">
+            <th class="align-middle" scope="row">
+                <span th:text="${myuser.userName}"></span>
+            </th>
+            <td class="align-middle">
+                <span th:text="${myuser.userPassword}"></span>
+            </td>
+            <td class="align-middle">
+                <span th:text="${myuser.userPhone}"></span>
+            </td>
+            <td class="align-middle">
+               <a  th:href="'/MyUser/geren?userphone='+${myuser.userPhone}" class="btn btn-primary ">个人书架</a>
+            </td>
+            <td class="align-middle">
+                <button type="button" class="btn btn-primary btn-modify" data-toggle="modal" data-target="#modifyUserModal">修改</button>
+                <a class="btn btn-danger" th:href="'/MyUser/deleteFromAdminTomyuser?userphone='+${myuser.userPhone}">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modifyUserModal" tabindex="-1" aria-labelledby="modifyUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modifyUserModalLabel">修改用户信息</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" th:action="@{/MyUser/UpdateFromAdmin}" >
+                        <div class="form-group">
+                            <label for="userphone">修改用户的账号</label>
+                            <input  type="userphone" class="form-control" id="userphone" name="userphone">
+                        </div>
+                        <div class="form-group" >
+                            <label for="userId">修改用户昵称</label>
+                            <input type="username" class="form-control" id="username" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">修改密码</label>
+                            <input type="password" class="form-control" id="userpassword" name="userpassword">
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                        <button type="submit" class="btn btn-primary">保存</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">bookid</th>
+            <th scope="col">小说名</th>
+            <th scope="col">作者</th>
+            <th scope="col">类型</th>
+            <th scope="col">描述</th>
+            <th scope="col">图片地址</th>
+            <th scope="col">小说文本地址</th>
+            <th scope="col">操作</th>
+        </tr>
+        </thead>
+        <tbody th:if="${AllBooks} ne null">
+        <tr th:each="book:${AllBooks}">
+            <th class="align-middle" scope="row">
+                <span th:text="${book.bookId}"></span>
+            </th>
+            <td class="align-middle">
+                <span th:text="${book.bookName}"></span>
+            </td>
+            <td class="align-middle">
+                <span th:text="${book.bookAuthor}"></span>
+            </td>
+            <td class="align-middle">
+                <span th:text="${book.bookKind}"></span>
+            </td>
+            <td class="align-middle">
+                <span th:text="${book.bookDscribe}"></span>
+            </td>
+            <td class="align-middle">
+                <span th:text="${book.bookPicture}"></span>
+            </td>
+            <td class="align-middle">
+                <span th:text="${book.bookWhere}"></span>
+            </td>
+            <td class="align-middle">
+                <button type="button" class="btn btn-primary btn-modify" data-toggle="modal" data-target="#modifyUserModal2">修改</button>
+<!--                <a class="btn btn-danger" th:href="'/MyUser/deleteFromAdminTomyuser?userid='+${myuser.userphone}">删除</a>-->
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modifyUserModal2" tabindex="-1" aria-labelledby="modifyUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modifyUserModalLabel">修改小说信息</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" th:action="@{/MyUser/UpdateBookFromAdmin}" >
+                        <div class="form-group">
+                            <label for="bookid">修改小说的书id</label>
+                            <input  type="text" class="form-control" id="bookid" name="bookid">
+                        </div>
+                        <div class="form-group" >
+                            <label for="bookname">修改小说名？</label>
+                            <input type="text" class="form-control" id="bookname" name="bookname">
+                        </div>
+                        <div class="form-group">
+                            <label for="bookauthor">修改作者？</label>
+                            <input type="text" class="form-control" id="bookauthor" name="bookauthor">
+                        </div>
+                        <div class="form-group">
+                            <label for="bookkind">修改小说类型</label>
+                            <input type="text" class="form-control" id="bookkind" name="bookkind">
+                        </div>
+                        <div class="form-group">
+                            <label for="bookdscribe">修改小说描述</label>
+                            <input type="text" class="form-control" id="bookdscribe" name="bookdscribe">
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                        <button type="submit" class="btn btn-primary">保存</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div style="">
+    <button type="button" class="btn btn-primary btn-modify" data-toggle="modal" data-target="#modifyUserModal3">增加小说</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modifyUserModal3" tabindex="-1" aria-labelledby="modifyUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modifyUserModalLabel3">增加小说</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" th:action="@{/MyUser/AddBookFromAdmin}" >
+                    <div class="form-group">
+                        <label for="bookid">小说的书id</label>
+                        <input  type="text" class="form-control" id="bookid" name="bookid">
+                    </div>
+                    <div class="form-group" >
+                        <label for="bookname">小说名</label>
+                        <input type="text" class="form-control" id="bookname" name="bookname">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookauthor">作者</label>
+                        <input type="text" class="form-control" id="bookauthor" name="bookauthor">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookkind">小说种类</label>
+                        <input type="text" class="form-control" id="bookkind" name="bookkind">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookdscribe">小说描述</label>
+                        <input type="text" class="form-control" id="bookdscribe" name="bookdscribe">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookpicture">图片地址</label>
+                        <input type="text" class="form-control" id="bookpicture" name="bookpicture">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookwhere">小说文本地址</label>
+                        <input type="text" class="form-control" id="bookwhere" name="bookwhere">
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary">保存</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

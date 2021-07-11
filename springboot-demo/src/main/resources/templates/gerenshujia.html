@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>小说管理</title>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <script type="text/javascript" src="/js/jquery.slim.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid mt-3">
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">bookid</th>
+            <th scope="col">小说名</th>
+            <th scope="col">作者</th>
+            <th scope="col">种类</th>
+            <th scope="col">描述</th>
+<!--            <th scope="col">图片地址</th>-->
+<!--            <th scope="col">小说文本地址</th>-->
+        </tr>
+        </thead>
+        <tbody th:if="${Books} ne null">
+        <tr th:each="book:${Books}">
+            <th class="align-middle" scope="row">
+                <span th:text="${book.bookId}"></span>
+            </th>
+            <td class="align-middle">
+                <span th:text="${book.bookName}"></span>
+            </td>
+            <td class="align-middle">
+                <span th:text="${book.bookAuthor}"></span>
+            </td>
+            <td class="align-middle">
+                <span th:text="${book.bookKind}"></span>
+            </td>
+            <td class="align-middle">
+                <span th:text="${book.bookDscribe}"></span>
+            </td>
+<!--            <td class="align-middle">-->
+<!--                <span th:text="${book.bookPicture}"></span>-->
+<!--            </td>-->
+<!--            <td class="align-middle">-->
+<!--                <span th:text="${book.bookWhere}"></span>-->
+<!--            </td>-->
+<!--            <td class="align-middle">-->
+<!--                <button type="button" class="btn btn-primary btn-modify" data-toggle="modal" data-target="#modifyUserModal">修改</button>-->
+<!--                &lt;!&ndash;                <a class="btn btn-danger" th:href="'/deleteUser?id='+${myuser.userphone}">删除</button>&ndash;&gt;-->
+<!--            </td>-->
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modifyUserModal" tabindex="-1" aria-labelledby="modifyUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modifyUserModalLabel">修改用户信息</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" th:action="@{/modifyUser}" enctype="multipart/form-data">
+                        <div class="form-group" style="display:none;">
+                            <label for="userId">用户账号</label>
+                            <input type="number" class="form-control" id="userId" name="userId">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">密码</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                        </div>
+                        <div class="form-group">
+                            <a href="/selec1">个人书架</a>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                        <button type="submit" class="btn btn-primary">保存</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
